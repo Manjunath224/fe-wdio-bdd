@@ -1,0 +1,5 @@
+install-run:
+  image: atlassianlabs/docker-node-jdk-chrome-firefox
+  commands:
+    - npm ci
+    - npm run test
