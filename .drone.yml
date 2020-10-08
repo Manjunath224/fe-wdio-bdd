@@ -1,7 +1,16 @@
+common-steps: &common
+  image: atlassianlabs/docker-node-jdk-chrome-firefox
+  when:
+    event: push
+
 pipeline:
 
-  install-run:
-    image: atlassianlabs/docker-node-jdk-chrome-firefox
+  install:
+    <<: *common
     commands:
       - npm ci
+
+  execute:
+    <<: *common
+    commands:
       - npm run test
