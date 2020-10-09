@@ -11,6 +11,7 @@ pipeline:
       - npm ci
 
   execute:
+    <<: *common
     image: cypress/included:5.3.0
     group: exe
     commands:
