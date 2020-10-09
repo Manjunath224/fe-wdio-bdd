@@ -10,16 +10,9 @@ exports.config = {
     ],
     maxInstances: 10,
     capabilities: [{
-        browserName: 'firefox',
-        acceptInsecureCerts: true,
-        'moz:firefoxOptions': {
-            args: ['--headless', '--disable-gpu','--disable-dev-shm-usage','--no-sandbox']
-        },
-        excludeDriverLogs: ['*']
-    }, {
         browserName: 'chrome',
         'goog:chromeOptions': {
-            args: ['--headless', '--disable-gpu','--disable-dev-shm-usage','--no-sandbox'],
+            args: ['--headless', '--disable-gpu', '--disable-dev-shm-usage', '--no-sandbox'],
         },
         excludeDriverLogs: ['*']
     }],
@@ -28,23 +21,20 @@ exports.config = {
     waitforTimeout: 10000,
     connectionRetryTimeout: 120000,
     connectionRetryCount: 3,
-    services: [
-        ['selenium-standalone', {
-            logPath: 'logs',
-            installArgs: {
-                drivers: {
-                    chrome: { version: '80.0.3987.16' },
-                    firefox: { version: '0.26.0' }
-                }
-            },
-            args: {
-                drivers: {
-                    chrome: { version: '80.0.3987.16' },
-                    firefox: { version: '0.26.0' }
-                }
-            },
-        }]
-    ],
+    services: ['docker'],
+    dockerOptions: {
+        image: 'selenium/standalone-chrome',
+        healthCheck: {
+            url: 'http://localhost:4444',
+            maxRetries: 3,
+            inspectInterval: 1000,
+            startDelay: 2000
+        },
+        options: {
+            p: ['4444:4444'],
+            shmSize: '2g'
+        }
+    },
     framework: 'cucumber',
     specFileRetries: 0,
     specFileRetriesDelay: 0,
