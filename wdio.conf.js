@@ -24,12 +24,7 @@ exports.config = {
     services: ['docker'],
     dockerOptions: {
         image: 'selenium/standalone-chrome',
-        healthCheck: {
-            url: 'http://localhost:4444',
-            maxRetries: 3,
-            inspectInterval: 1000,
-            startDelay: 2000
-        },
+        healthCheck: 'http://localhost:4444',
         options: {
             p: ['4444:4444'],
             shmSize: '2g'
