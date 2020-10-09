@@ -14,3 +14,8 @@ pipeline:
     <<: *common
     commands:
       - npm run test
+
+  execute-docker:
+    image: docker
+    commands:
+      - npm run test
