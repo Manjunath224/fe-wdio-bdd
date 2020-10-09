@@ -9,14 +9,7 @@ exports.config = {
         // 'path/to/excluded/files'
     ],
     maxInstances: 10,
-    capabilities: [{
-        browserName: 'firefox',
-        acceptInsecureCerts: true,
-        'moz:firefoxOptions': {
-            args: ['--headless', '--disable-gpu','--disable-dev-shm-usage','--no-sandbox']
-        },
-        excludeDriverLogs: ['*']
-    }, {
+    capabilities: [ {
         browserName: 'chrome',
         'goog:chromeOptions': {
             args: ['--headless', '--disable-gpu','--disable-dev-shm-usage','--no-sandbox'],
@@ -28,7 +21,7 @@ exports.config = {
     waitforTimeout: 10000,
     connectionRetryTimeout: 120000,
     connectionRetryCount: 3,
-    services: ['selenium-standalone'],
+    services: ['chromedriver'],
     framework: 'cucumber',
     specFileRetries: 0,
     specFileRetriesDelay: 0,
