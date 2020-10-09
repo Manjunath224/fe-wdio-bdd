@@ -11,7 +11,7 @@ pipeline:
       - npm ci
 
   execute:
-    <<: *common
+    image: selenium/standalone-chrome:85.0
     group: exe
     commands:
       - npm run test
