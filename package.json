@@ -29,7 +29,6 @@
     "@wdio/spec-reporter": "^6.6.0",
     "@wdio/allure-reporter": "^6.6.2",
     "@wdio/selenium-standalone-service": "^6.6.2",
-    "wdio-docker-service": "^3.0.0",
     "allure-commandline": "^2.13.0",
     "cucumber": "6.0.5"
   }
