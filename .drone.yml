@@ -15,10 +15,3 @@ pipeline:
     group: exe
     commands:
       - npm run test
-
-  execute-docker:
-    <<: *common
-    image: docker
-    group: exe
-    commands:
-      - npm run test
